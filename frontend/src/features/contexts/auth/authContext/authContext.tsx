@@ -1,7 +1,8 @@
 import { AuthProviderProps } from './authProvider.props';
-import { createContext, useState, useCallback, ReactNode } from "react";
+import { createContext, useState } from "react";
 import { IUser } from "@shared/types";
 import { AuthService } from '@shared/api/auth/auth.service';
+import { removeTokenStorage } from '@shared/api/api.helper';
 
 type AuthContextType = {
   isLoggedIn: boolean;
@@ -39,7 +40,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
    */
   const logout = (clearData: boolean = false) => {
     setIsLoggedIn(false);
-    clearData ? setUser(null) : null;
+    if (clearData) {
+      setUser(null);
+      removeTokenStorage();
+    }
   };
 
   /**
