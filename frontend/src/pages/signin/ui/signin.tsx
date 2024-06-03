@@ -1,5 +1,4 @@
 import styles from "./signin.module.scss";
-import { useAuth } from "@/features/hooks/useAuth";
 
 import { FormAuth } from '@/features/ui/formAuth'
 

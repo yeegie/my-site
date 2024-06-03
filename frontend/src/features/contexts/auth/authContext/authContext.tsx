@@ -7,7 +7,7 @@ type AuthContextType = {
   isLoggedIn: boolean;
   setIsLoggedIn: (value: boolean) => void;
   authenticate: (user?: IUser) => void,
-  logout: () => void,
+  logout: (clearData?: boolean) => void,
   user: IUser | null,
   setUser: (user: IUser | null) => void,
   validate: () => Promise<void>,
