@@ -1,11 +1,13 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import styles from "./Input.module.scss";
 import { InputProps } from "./Input.props";
 
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+import clsx from "clsx";
 
 export const Input: React.FC<InputProps> = ({
+  value,
   name,
   type,
   minLength,
@@ -13,23 +15,28 @@ export const Input: React.FC<InputProps> = ({
   placeholder,
   onChange,
   required,
+  className,
 }) => {
-  const [visible, setVisible] = useState(type === "password" ? false : true);
+  const [inputData, setinputData] = useState<string>("");
+  const [visible, setVisible] = useState<boolean>(
+    type === "password" ? false : true
+  );
   const toggleVisibility = () => setVisible(!visible);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
+    setinputData(e.target.value);
   };
 
   return (
-    <div className={styles.input}>
+    <div className={clsx(styles.input, className)}>
       <input
         type={visible ? "text" : "password"}
+        value={value ?? inputData}
         placeholder={placeholder}
-        {...(name ? { name: { name } } : {})}
-        {...(minLength ? { minLength: { minLength } } : {})}
-        {...(maxLength ? { maxLength: { minLength } } : {})}
-        onChange={handleChange}
+        name={name}
+        minLength={minLength}
+        maxLength={maxLength}
+        onChange={onChange ?? handleChange}
         {...(required ? { required } : {})}
       />
       {type === "password" ? (

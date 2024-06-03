@@ -1,12 +1,6 @@
-import { ChangeEvent } from "react"
+import { InputHTMLAttributes } from "react"
 
-export interface InputProps {
-    // id?: string
-    name?: string
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     type?: 'text' | 'password'
-    minLength?: number
-    maxLength?: number
-    placeholder?: string
-    onChange: (value: string) => void
-    required?: boolean
+    className?: string
 }
