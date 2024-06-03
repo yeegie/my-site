@@ -1,0 +1,24 @@
+.list {
+    ul {
+        margin-left: 1.5rem;
+
+        button, a {
+            font-family: AnonymousPro;
+            font-weight: bold;
+
+            text-transform: capitalize;
+
+            color: #333333;
+            font-size: 13pt;
+        }
+
+        .list-child {
+            transition: all ease-in-out 0.1s;
+            border-right: solid 0px #333333;
+
+            &:hover {
+                border-right: solid 4px #333333;
+            }
+        }
+    }
+}

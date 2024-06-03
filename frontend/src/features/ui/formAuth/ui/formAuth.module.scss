@@ -1,0 +1,35 @@
+form {
+    display: flex;
+    justify-content: center;
+
+    min-height: 20rem;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem;
+
+        background: #eeeeee;
+        border-radius: 15px;
+
+        box-shadow: 2px 2px 5px rgba(51, 51, 51, 0.5);
+
+        .error p {
+            text-align: center;
+            color: red;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 2rem;
+        }
+    }
+}
+
+p {
+    font-size: 12pt;
+    color: #414141;
+    margin: 0;
+    margin-bottom: 1rem;
+}

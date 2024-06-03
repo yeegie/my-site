@@ -1,0 +1,68 @@
+/* Roboto */
+
+@font-face {
+    font-family: Roboto;
+    src: url('./fonts/roboto-family/Roboto-Regular.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('./fonts/roboto-family/Roboto-Bold.ttf');
+    font-weight: bold;
+}
+
+/* Anonymous Pro */
+@font-face {
+    font-family: AnonymousPro;
+    src: url('./fonts/anonymous-pro/AnonymousPro-Regular.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: AnonymousPro;
+    src: url('./fonts/anonymous-pro/AnonymousPro-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: AnonymousPro;
+    src: url('./fonts/anonymous-pro/AnonymousPro-Italic.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: AnonymousPro;
+    src: url('./fonts/anonymous-pro/AnonymousPro-BoldItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+
+:root {
+    font-family: AnonymousPro, Roboto;
+
+    color-scheme: light;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.unselectable {
+    user-select: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}

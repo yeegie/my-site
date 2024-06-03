@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  site:
+    container_name: site
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile.dev
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile.dev
+    ports:
+      - "8001:8001"

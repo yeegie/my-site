@@ -1,0 +1,64 @@
+.link-button {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+    font-size: 18pt;
+    // font-weight: bold;
+
+    border-radius: 25px;
+
+    line-height: 0.5rem;
+    padding: 0.5rem;
+    padding-right: 0.9rem;
+
+    cursor: pointer;
+
+    svg {
+        transform: scale(1.4);
+        margin-right: 1rem;
+        margin-left: 0.1rem;
+    }
+
+    span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    transition: transform ease-out 0.3s;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.url {
+    color: black;
+    font-weight: bold;
+
+    border: 3px solid black;
+
+    svg {
+        transform: scale(1.7);
+        margin-left: 0.4rem;
+    }
+
+    &:hover svg {
+        animation: shake 0.5s ease infinite;
+    }
+}
+
+.github {
+    color: white;
+    background-color: black;
+
+    border: 3px solid black;
+}
+
+/* ANIMATION */
+@keyframes shake {
+    0% { transform: rotate(0) scale(1.7); }
+    25% { transform: rotate(-4deg) scale(1.7); }
+    50% { transform: rotate(4deg) scale(1.7); }
+    75% { transform: rotate(-4deg) scale(1.7); }
+    100% { transform: rotate(0) scale(1.7); }
+}

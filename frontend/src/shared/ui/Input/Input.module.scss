@@ -1,0 +1,45 @@
+.input {
+    position: relative;
+
+    input {
+        font-family: AnonymousPro;
+        font-size: 15pt;
+
+        border-radius: 15px;
+
+        padding: 0.4rem;
+        padding-left: 1rem;
+        padding-right: 2.5rem;
+
+        transition: border 0.3s;
+
+        outline: none;
+        border: solid 2px #808080;
+
+        &:focus {
+            border: 2px solid #4d4d4d;
+        }
+    }
+
+    .eye {
+        position: absolute;
+        top: 1.25rem;
+        right: 0.5rem;
+        transform: translateY(-50%);
+        
+        cursor: pointer;
+        
+        width: 2rem;
+        padding: 0;
+        margin: 0;
+        
+        background: none;
+        border: none;
+
+        svg {
+            fill: #808080;
+            transform: scale(1.2);
+        }
+    }
+}
+

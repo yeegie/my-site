@@ -1,0 +1,50 @@
+.work-preview {
+    display: flex;
+    justify-content: center;
+
+    // Title
+    h1 {
+        text-align: left;
+    }
+
+    .description {
+        margin-top: 2rem;
+    }
+
+    .work-content {
+        width: 50rem;
+        font-size: 18pt;
+    }
+
+    .stack-holder {
+        p {
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
+
+        .stack-list {
+            background: rgb(241, 241, 241);
+            box-shadow: inset 0px 1px 10px rgba(51, 51, 51, 0.3);
+            border-radius: 30px;
+            padding: 1rem;
+
+            display: flex;
+            gap: 0.5rem;
+        }
+    }
+    
+    .url-holder {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 2rem;
+    }
+}
+
+.preview-body-text {
+    color: #333333;
+}
+
+.preview-body-image {
+    color: #333333;
+}
+

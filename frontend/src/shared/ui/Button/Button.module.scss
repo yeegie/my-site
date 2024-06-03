@@ -1,0 +1,23 @@
+.button {
+    
+
+    font-family: AnonymousPro;
+    font-weight: bold;
+    font-size: 15pt;
+    color: white;
+
+    padding: 0.5rem;
+    padding-left: 1.7rem;
+    padding-right: 1.7rem;
+
+    border-radius: 15px;
+    border: none;
+
+    background: #27a820;
+    transition: background ease-in-out 0.2s;
+
+    &:hover {
+        transition: background ease-in-out 0.2s;
+        background: #208b1a;
+    }
+}
