@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi_limiter import FastAPILimiter
 from fastapi.middleware.cors import CORSMiddleware
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
@@ -19,12 +20,11 @@ logger.add(LOG_OUT_FILE, rotation='10 MB', compression='zip', level='DEBUG')
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # scheduler = AsyncIOScheduler()
-    # scheduler.add_job(SessionService.checker, 'interval', minutes=1)
-    # scheduler.start()
+    FastAPILimiter.init()
 
     logger.info('[⭐] Starting app...')
     await init_database()
+
     yield
     logger.info('[👋] Bye')
     await close_database()
