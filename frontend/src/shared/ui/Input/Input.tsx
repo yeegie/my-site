@@ -31,7 +31,6 @@ export const Input: React.FC<InputProps> = ({
     <div className={clsx(styles.input, className)}>
       <input
         type={visible ? "text" : "password"}
-        value={value ?? inputData}
         placeholder={placeholder}
         name={name}
         minLength={minLength}
