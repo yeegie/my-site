@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends, Response
 from fastapi.security import OAuth2PasswordBearer
-from fastapi_limiter.depends import RateLimiterMemory
+from fastapi_limiter.depends import RateLimiter
 
 from tortoise.exceptions import DoesNotExist, IntegrityError
 
@@ -20,7 +20,7 @@ router = APIRouter()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='/auth/login')
 
 
-@router.post('/register')
+@router.post('/register', dependencies=[Depends(RateLimiter(times=5, seconds=10))])
 async def register(dto: UserCreateDto):
     try:
         new_user = await AuthService.register(dto)
@@ -32,8 +32,7 @@ async def register(dto: UserCreateDto):
         raise HTTPException(500, detail=str(ex))
 
 
-@router.post('/login')
-@RateLimiterMemory(rate="10/minute")
+@router.post('/login', dependencies=[Depends(RateLimiter(times=5, seconds=10))])
 async def login(dto: Annotated[AuthDto, Depends()]):  # form_data: Annotated[OAuth2PasswordRequestForm, Depends()]
     try:
         return await AuthService.login(dto.username, dto.password)
@@ -45,8 +44,7 @@ async def login(dto: Annotated[AuthDto, Depends()]):  # form_data: Annotated[OAu
         raise HTTPException(500, detail=str(ex))
     
 
-@router.post('/refresh')
-@RateLimiterMemory(rate="10/minute")
+@router.post('/refresh', dependencies=[Depends(RateLimiter(times=5, seconds=10))])
 async def refresh(refresh_token: Annotated[str, Depends(oauth2_scheme)]):
     try:
         return await AuthService.refresh(refresh_token)
@@ -58,8 +56,7 @@ async def refresh(refresh_token: Annotated[str, Depends(oauth2_scheme)]):
         raise HTTPException(500, detail=str(ex))
     
 
-@router.post('/validate')
-@RateLimiterMemory(rate="10/minute")
+@router.post('/validate', dependencies=[Depends(RateLimiter(times=5, seconds=10))])
 async def check(access_token: Annotated[str, Depends(oauth2_scheme)]):
     try:
         await AuthService.check(access_token)

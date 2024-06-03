@@ -3,6 +3,8 @@ from fastapi_limiter import FastAPILimiter
 from fastapi.middleware.cors import CORSMiddleware
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
+import redis.asyncio as redis
+
 import uvicorn
 from contextlib import asynccontextmanager
 
@@ -20,7 +22,8 @@ logger.add(LOG_OUT_FILE, rotation='10 MB', compression='zip', level='DEBUG')
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    FastAPILimiter.init()
+    redis_connection = redis.from_url("redis://localhost", encoding="utf-8", decode_responses=True)
+    await FastAPILimiter.init(redis_connection)
 
     logger.info('[⭐] Starting app...')
     await init_database()
