@@ -6,3 +6,30 @@ main {
         margin-bottom: 3rem;
     }
 }
+
+.work-holder {
+    .work {
+        display: grid;
+        gap: 20px;
+        justify-content: center;
+
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+
+
+        @media (min-width: 480px) {
+            grid-template-columns: repeat(auto-fit, 20rem);
+        }
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(auto-fit, 20rem);
+        }
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(auto-fit, 20rem);
+        }
+
+        @media (min-width: 1600px) {
+            grid-template-columns: repeat(auto-fit, 20rem);
+        }
+    }
+}

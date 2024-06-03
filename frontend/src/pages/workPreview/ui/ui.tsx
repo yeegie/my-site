@@ -46,7 +46,11 @@ export const WorkPreviewPage = () => {
         <div className={styles["content-holder"]}>
           {current_work && <WorkPreview work={current_work} />}
           <Title>Другие кейсы</Title>
-          <Work works={other_works} />
+          {data ? (
+            <div className={styles["work-holder"]}>
+              <Work className={styles.work} works={other_works} />
+            </div>
+          ) : null}
         </div>
       </main>
     </>

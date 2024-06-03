@@ -1,8 +1,9 @@
 import styles from "./work.module.scss";
 import { WorkCard } from "@entities/work";
 import { WorkProps } from "./work.props";
+import clsx from "clsx";
 
-export const Work: React.FC<WorkProps> = ({ works, editMode }) => {
+export const Work: React.FC<WorkProps> = ({ works, editMode, className }) => {
   const work_list = works.map((work) => (
     <WorkCard
       key={work.id}
@@ -15,5 +16,8 @@ export const Work: React.FC<WorkProps> = ({ works, editMode }) => {
     />
   ));
 
-  return <div className={styles.content}>{work_list}</div>;
+  return <div className={clsx(
+    styles.content,
+    className
+  )}>{work_list}</div>;
 };

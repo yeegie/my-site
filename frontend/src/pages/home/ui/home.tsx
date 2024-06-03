@@ -32,7 +32,11 @@ export const HomePage = () => {
       <Welcome />
       <main className={styles.main}>
         <Title anchor="work">Мои проекты 🚀</Title>
-        {data ? <Work works={data} /> : null}
+        {data ? (
+          <div className={styles["work-holder"]}>
+            <Work className={styles.work} works={data} />
+          </div>
+        ) : null}
       </main>
     </>
   );

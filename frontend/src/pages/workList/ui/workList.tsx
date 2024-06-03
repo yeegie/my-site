@@ -4,6 +4,8 @@ import { WorkService } from "@shared/api/work/work.service";
 import { IWorkResponse } from "@/shared/types";
 import { Work } from "@/widgets/work";
 import { Button } from "@/shared/ui/Button";
+import { IconButton } from "@shared/ui/IconButton";
+import AddIcon from '@mui/icons-material/Add';
 
 export const WorkListPage: React.FC = () => {
   const [data, setData] = useState<IWorkResponse[] | null>(null);
@@ -26,10 +28,11 @@ export const WorkListPage: React.FC = () => {
   return (
     <div className={styles.work}>
       <div className={styles['button-holder']}>
-        <Button text='Создать' href="/admin/work/create" />
+        {/* <Button text='Создать' href="/admin/work/create" /> */}
+        <IconButton href="/admin/work/create" text="Создать" icon={<AddIcon />}></IconButton>
       </div>
       { data
-      ? <Work works={data} editMode />
+      ? <div className={styles['work-holder']}><Work works={data} editMode className={styles.work} /></div>
       : <p>Data is null</p> }
     </div>
   );
