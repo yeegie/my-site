@@ -29,7 +29,7 @@ export const removeTokenStorage = () => {
   Cookies.remove("refresh_token");
 
   localStorage.removeItem("access_token");
-  localStorage.setremoveItemItem("refresh_token");
+  localStorage.removeItem("refresh_token");
 
   localStorage.removeItem('user');
 };
