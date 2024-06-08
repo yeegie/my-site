@@ -1,7 +1,7 @@
 import { SkeletonTheme } from "react-loading-skeleton";
-import { Outlet, ScrollRestoration } from "react-router-dom";
+import { Outlet, } from "react-router-dom";
 
-import styles from "./layout.scss";
+// import styles from "./layout.scss";
 
 import { Header } from "@/widgets/header";
 import { Footer } from "@/widgets/footer";

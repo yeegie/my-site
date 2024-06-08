@@ -1,7 +1,7 @@
 import styles from "./layout.module.scss";
 
 import { SkeletonTheme } from "react-loading-skeleton";
-import { Outlet, ScrollRestoration } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import { Sidebar } from "@widgets/sidebar";
 import { TopPanel } from "@widgets/topPanel";
