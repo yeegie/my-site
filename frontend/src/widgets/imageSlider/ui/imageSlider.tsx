@@ -4,7 +4,7 @@ import { ImageSliderProps } from "./imageSlider.props";
 
 export const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
   const [currentIndex, setIndex] = useState(0);
-  const imageCount = images.length - 1;
+  // const imageCount = images.length - 1;
 
   const API_URL = import.meta.env.VITE_API_URL;
 
@@ -18,13 +18,13 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
 
   console.info(images);
 
-  const move = (direction: string) => {
-    if (direction === "left") {
-      currentIndex - 1 < 0 ? setIndex(imageCount) : setIndex(currentIndex - 1);
-    } else {
-      currentIndex + 1 > imageCount ? setIndex(0) : setIndex(currentIndex + 1);
-    }
-  };
+  // const move = (direction: string) => {
+  //   if (direction === "left") {
+  //     currentIndex - 1 < 0 ? setIndex(imageCount) : setIndex(currentIndex - 1);
+  //   } else {
+  //     currentIndex + 1 > imageCount ? setIndex(0) : setIndex(currentIndex + 1);
+  //   }
+  // };
 
   const show = (index: number) => {
     setIndex(index);

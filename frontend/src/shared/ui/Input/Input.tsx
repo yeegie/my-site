@@ -7,7 +7,6 @@ import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined
 import clsx from "clsx";
 
 export const Input: React.FC<InputProps> = ({
-  value,
   name,
   type,
   minLength,
@@ -25,6 +24,7 @@ export const Input: React.FC<InputProps> = ({
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setinputData(e.target.value);
+    console.log(inputData);
   };
 
   return (

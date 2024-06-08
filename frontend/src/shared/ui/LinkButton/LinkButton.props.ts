@@ -1,5 +1,5 @@
 export interface LinkButtonProps {
-    type?: string
+    type: 'github' | 'url'
     title?: string
     url?: string
 }

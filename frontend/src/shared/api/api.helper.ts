@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 import { Token, TokenWithData } from "@shared/types/tokenTypes";
-import { IAuthResponse } from "@shared/types/authType";
+// import { IAuthResponse } from "@shared/types/authType";
 
 export const getContentType = () => ({
   "Content-Type": "application/json",

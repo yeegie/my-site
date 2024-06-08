@@ -1,5 +1,5 @@
 export interface IUrlResponse {
     id: number
-    type: string
+    type: 'github' | 'url'
     url: string
 }

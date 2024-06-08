@@ -1,4 +1,4 @@
-import { WorkCreateDto, WorkPatchDto } from "@entities/work";
+// import { WorkCreateDto, WorkPatchDto } from "@entities/work";
 
 // export enum availableCreateTables {
 //   WorkCreateDto,

@@ -3,7 +3,7 @@ import styles from "./workList.module.scss";
 import { WorkService } from "@shared/api/work/work.service";
 import { IWorkResponse } from "@/shared/types";
 import { Work } from "@/widgets/work";
-import { Button } from "@/shared/ui/Button";
+// import { Button } from "@/shared/ui/Button";
 import { IconButton } from "@shared/ui/IconButton";
 import AddIcon from '@mui/icons-material/Add';
 
@@ -29,7 +29,7 @@ export const WorkListPage: React.FC = () => {
     <div className={styles.work}>
       <div className={styles['button-holder']}>
         {/* <Button text='Создать' href="/admin/work/create" /> */}
-        <IconButton href="/admin/work/create" text="Создать" icon={<AddIcon />}></IconButton>
+        <IconButton href="/admin/work/create" text="Создать" icon={<AddIcon />} onClick={() => {}}></IconButton>
       </div>
       { data
       ? <div className={styles['work-holder']}><Work works={data} editMode className={styles.work} /></div>

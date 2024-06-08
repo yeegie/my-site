@@ -12,13 +12,11 @@ export const IconButton: React.FC<IconButtonProps> = ({
   href,
 }) => {
   const coloredIcon =
-    React.isValidElement(icon) && iconColor
+    icon && React.isValidElement(icon)
       ? React.cloneElement(icon, {
-          style: {
-            fill: iconColor,
-          },
-        })
-      : React.cloneElement(icon);
+          style: iconColor ? { fill: iconColor } : undefined,
+        } as React.HTMLAttributes<HTMLElement>)
+      : null;
 
   return (
     <Button

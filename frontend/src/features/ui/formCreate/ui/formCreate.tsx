@@ -4,7 +4,7 @@ import { FormCreateProps } from "./formCreate.props";
 import { Button } from "@shared/ui/Button";
 import { Input } from "@shared/ui/Input";
 import { Checkbox } from "@shared/ui/Checkbox";
-import { TextArea } from "@shared/ui/TextField";
+import { TextArea } from "@shared/ui/TextArea";
 
 type bodyType = {
   [key: string]: string | number | boolean

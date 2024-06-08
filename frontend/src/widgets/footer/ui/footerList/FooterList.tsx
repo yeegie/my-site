@@ -1,15 +1,12 @@
-import React from 'react';
-import styles from './FooterList.module.scss';
+// import React from "react";
+// import styles from "./FooterList.module.scss";
 
-import Title from '@/shared/ui/Title/Title';
+// import Title from "@/shared/ui/Title/Title";
 
-const FooterList: React.FC<> = () => {
-    const renderMenu = () => {
-    }
+// const FooterList: React.FC<> = () => {
+//   const renderMenu = () => {};
 
-    return <div>
-        {renderMenu()}
-    </div>
-}
+//   return <div>{renderMenu()}</div>;
+// };
 
-export default FooterList;
+// export default FooterList;

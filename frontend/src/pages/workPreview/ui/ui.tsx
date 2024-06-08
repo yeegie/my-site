@@ -19,7 +19,7 @@ export const WorkPreviewPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // setLoading(true);
+      setLoading(true);
       try {
         const fetchedData = await WorkService.getAllAvailable();
         setData(fetchedData);
@@ -27,6 +27,10 @@ export const WorkPreviewPage = () => {
         setError("Data fetching error");
       } finally {
         setLoading(false);
+
+        // TODO: Delete
+        console.debug(loading);
+        console.debug(error);
       }
     };
 

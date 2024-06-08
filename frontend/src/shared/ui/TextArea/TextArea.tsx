@@ -14,7 +14,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
   const [text, setText] = useState<string>("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
     console.info(text);
   };

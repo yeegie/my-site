@@ -19,7 +19,7 @@ export const MenuCategory: React.FC<MenuCategoryProps> = ({
                 icon={button.icon}
                 iconColor={button.iconColor}
                 text={button.text}
-                onClick={button.onClick}
+                onClick={button.onClick ? button.onClick : () => {}}
               />
             </li>
           </Link>
