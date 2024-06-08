@@ -9,8 +9,8 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
 }) => {
   const buttonComponent = <button
-      {...type ? { type: { type } } : {}}
-      {...disabled ? { disabled } : {}}
+      type={type}
+      disabled={disabled}
       className={styles.button}
     >
       {text}
