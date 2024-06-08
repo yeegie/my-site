@@ -1,4 +1,4 @@
-import styles from "./logout.module.scss";
+// import styles from "./logout.module.scss";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/features/hooks/useAuth";
@@ -8,7 +8,7 @@ export const LogoutPage = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout();
+    logout(true);
     navigate("/");
   };
 
