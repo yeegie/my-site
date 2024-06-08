@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import styles from "./error404.module.scss";
-import { Title } from "@shared/ui/Title";
 
 export const Error404Page = () => {
   return (
