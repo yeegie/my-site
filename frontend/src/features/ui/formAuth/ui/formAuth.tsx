@@ -43,13 +43,13 @@ export const FormAuth: React.FC<FormAuthProps> = () => {
         ) : null}
         <div>
           <Paragraph>Email</Paragraph>
-          <Input onChange={(value) => setEmail(value)} required />
+          <Input onChange={(event) => setEmail(event.target.value)} required />
         </div>
         <div>
           <Paragraph>Password</Paragraph>
           <Input
             type="password"
-            onChange={(value) => setPassword(value)}
+            onChange={(event) => setPassword(event.target.value)}
             maxLength={32}
             required
           />

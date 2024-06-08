@@ -1,5 +1,5 @@
-import { availableCreateTables } from '@app/data/availableTables'
+import { WorkCreateDto } from "@entities/work";
 
 export interface FormCreateProps {
-    createDto: availableCreateTables;
+  createDto: typeof WorkCreateDto
 }

@@ -1,5 +1,5 @@
-import { WorkCreateDto } from '@entities/work'
+// import { WorkCreateDto } from '@entities/work'
 
-export interface FormWorkEditProps {
-  dto: 
-}
+// export interface FormWorkEditProps {
+//   dto: 
+// }
