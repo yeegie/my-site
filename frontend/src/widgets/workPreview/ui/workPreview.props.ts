@@ -1,5 +1,5 @@
-import { IStackResponse, IUrlResponse, IWorkResponse } from "@/shared/types"
+import { IWorkResponse } from "@/shared/types";
 
 export interface WorkPreviewProps {
-    work: IWorkResponse
+  work: IWorkResponse;
 }

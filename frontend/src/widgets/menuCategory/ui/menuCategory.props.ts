@@ -1,6 +1,6 @@
-import { IIconButton } from "@/shared/types"
+import { IIconButton } from "@/shared/types";
 
 export interface MenuCategoryProps {
-    title: string
-    buttons: Array<IIconButton>
+  title: string;
+  buttons: Array<IIconButton>;
 }
