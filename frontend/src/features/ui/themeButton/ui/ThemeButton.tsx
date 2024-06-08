@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import styles from './ThemeButton.module.scss';
 
@@ -35,13 +35,8 @@ export const ThemeButton: React.FC<ThemeButtonProps> = ({hover, disableRipple, s
             [styles.hover]: hover,
         })}
 
-        {...disableRipple
-            ? { disableRipple }
-            : {}}
-        
-        {...size
-            ? { size }
-            : {}}
+        disableRipple={disableRipple}
+        size={size}
         >
         {themeIcons[theme]}
     </IconButton>
