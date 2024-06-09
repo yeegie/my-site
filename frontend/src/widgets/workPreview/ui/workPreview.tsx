@@ -41,7 +41,7 @@ export const WorkPreview: React.FC<WorkPreviewProps> = ({ work }) => {
             <div>
               <Title>{work.title}</Title>
               {image}
-              {stack_list
+              {stack_list.length > 0
               ? <div className={styles["stack-holder"]}>
                   <Paragraph fontSize={"20pt"} bold frozen>
                     Technologies ⚙️
