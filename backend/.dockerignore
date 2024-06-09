@@ -1,2 +1,4 @@
 /venv/
+/backend/logs/
+.env.example
 *.sqlite*

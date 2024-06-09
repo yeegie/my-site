@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+  site:
+    container_name: site
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    ports:
+      # - "3000:3000"
+      - "80:80"
+    depends_on:
+      - api
+
+  # Needs for FastAPI Limiter
+  redis:
+    container_name: redis
+    image: redis:latest
+    restart: always
+    ports:
+      - "6380:6379"
+
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dLxzopda4a79!
+      MYSQL_DATABASE: my_site 
+    ports:
+      - "3307:3306"
+
+  api:
+    container_name: api
+    depends_on:
+      - redis
+      - mysql
+    restart: always
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    ports:
+      - "8001:8000"
