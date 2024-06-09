@@ -22,7 +22,7 @@ logger.add(LOG_OUT_FILE, rotation='10 MB', compression='zip', level='DEBUG')
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    redis_connection = redis.from_url("redis://localhost", encoding="utf-8", decode_responses=True)
+    redis_connection = redis.from_url("redis://redis", encoding="utf-8", decode_responses=True)
     await FastAPILimiter.init(redis_connection)
 
     logger.info('[⭐] Starting app...')
@@ -36,7 +36,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title='api', debug=True, lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['http://127.0.0.1:3000'],
+    allow_origins=['http://172.18.0.5'],
     allow_credentials=True,
     allow_methods=['GET', 'POST', 'PUT', 'DELETE'],
     allow_headers=['*'],
