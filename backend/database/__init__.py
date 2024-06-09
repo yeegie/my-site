@@ -1,4 +1,6 @@
 from tortoise import Tortoise
+import time
+from tortoise.exceptions import DBConnectionError
 from backend.config import DataBase
 from loguru import logger
 import os
@@ -15,13 +17,23 @@ async def init_database():
             os.utime(db_path + db_file, None)
         logger.info(f'[!] Database created {db_path + db_file}')
 
-    await Tortoise.init(
-        db_url=DataBase.connection_string,
-        modules={'models': ['database.models']}
-    )
+    time.sleep(15)
 
-    await Tortoise.generate_schemas()
-    logger.info(f'[📦] Database({DataBase.type}) connected...')
+    try:
+        await Tortoise.init(
+            db_url=DataBase.connection_string,
+            modules={'models': ['database.models']}
+        )
+
+        await Tortoise.generate_schemas()
+        logger.info(f'[📦] Database({DataBase.type}) connected...')
+    except DBConnectionError as ex:
+        time.sleep(10)
+        logger.warning(f'Data base connection error to {DataBase.connection_string}. Retry after 10 sec')
+        logger.warning(ex)
+        await init_database()
+    except Exception as ex:
+        logger.critical(f'DATABASE CONNECTION ERROR: {str(ex)}')
 
 
 async def close_database():

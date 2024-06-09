@@ -46,6 +46,7 @@ class DataBase:
     user = env.str('db_user')
     password = env.str('db_password')
     database = env.str('db_database')
+    database_service = env.str('db_service')
 
     avaiable_types = ['sqlite', 'mysql', 'postgres']
 
@@ -58,7 +59,10 @@ class DataBase:
 
         connection_string = f'{type}://{db_path}{db_file}'
     else:
-        connection_string = f'{type}://{user}:{password}@{host}:{port}/{database}'
+        if database_service != 'null':
+            connection_string = f'{type}://{user}:{password}@{database_service}/{database}'
+        else:
+            connection_string = f'{type}://{user}:{password}@{host}:{port}/{database}'
 
     _all = [type, host, port, user, password, database]
     _fields = ['type', 'host', 'port', 'user', 'password', 'database']
