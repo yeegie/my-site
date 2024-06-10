@@ -1,0 +1,60 @@
+version: '3.7'
+
+services:
+  site:
+    container_name: site
+    restart: always
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile.slim
+    ports:
+      - "5173:5173"
+    networks:
+      - traefik_network
+    # depends_on:  # Turn it on if you have to
+      # - api
+    labels:
+      - "traefik.enable=true"
+
+      # Network
+      - "traefik.docker.network=traefik_network"
+
+      # Service
+      - "traefik.http.services.site-service.loadbalancer.server.port=80"
+
+      # Router
+      - "traefik.http.routers.site-router.rule=Host(`berdovskiy.space`)"  # Replace to your domain
+      - "traefik.http.routers.site-router.service=site-service"
+
+      # Entry point
+      - "traefik.http.routers.site-router.entrypoints=web"
+
+  # Needs for FastAPI Limiter
+  redis:
+    container_name: redis
+    image: redis:latest
+    restart: always
+    ports:
+      - "6380:6379"
+
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dLxzopda4a79!
+      MYSQL_DATABASE: my_site 
+    ports:
+      - "3307:3306"
+
+  api:
+    container_name: api
+    depends_on:
+      - redis
+      - mysql
+    restart: always
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    ports:
+      - "8001:8000"

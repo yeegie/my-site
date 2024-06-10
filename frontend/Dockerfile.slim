@@ -1,0 +1,13 @@
+FROM nginx:stable-alpine
+
+WORKDIR /usr/local/bin
+
+COPY /frontend/dist /usr/share/nginx/html
+
+COPY /frontend/generate-config.sh ./
+
+COPY /frontend/custom-nginx.template /etc/nginx/conf.d/
+
+RUN chmod +x generate-config.sh
+
+ENTRYPOINT [ "/bin/sh", "generate-config.sh"]
