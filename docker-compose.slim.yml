@@ -58,3 +58,9 @@ services:
       dockerfile: ./backend/Dockerfile
     ports:
       - "8001:8000"
+
+networks:
+  traefik_network:
+    driver: overlay
+    external: true
+
