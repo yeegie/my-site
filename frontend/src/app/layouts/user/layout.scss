@@ -66,3 +66,13 @@ html {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+
+a {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button, a, input, textarea {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}

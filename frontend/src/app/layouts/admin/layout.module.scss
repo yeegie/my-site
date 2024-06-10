@@ -73,3 +73,13 @@ html {
     grid-template-columns: auto 1fr;
     height: 100vh;
 }
+
+a {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button, a, input, textarea {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
