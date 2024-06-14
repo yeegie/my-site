@@ -59,10 +59,12 @@ class DataBase:
 
         connection_string = f'{type}://{db_path}{db_file}'
     else:
-        if database_service != 'null':
+        if database_service == 'local':
+            connection_string = f'{type}://{user}:{password}@{host}:{port}/{database}'
+        elif database == 'container':
             connection_string = f'{type}://{user}:{password}@{database_service}/{database}'
         else:
-            connection_string = f'{type}://{user}:{password}@{host}:{port}/{database}'
+            raise ValueError('.env: database_service must be "local" or "container"')
 
     _all = [type, host, port, user, password, database]
     _fields = ['type', 'host', 'port', 'user', 'password', 'database']
