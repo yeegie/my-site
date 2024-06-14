@@ -47,7 +47,7 @@ class DataBase:
     password = env.str('db_password')
     database = env.str('db_database')
     database_service = env.str('db_service')
-    database_service_name = env.str('database_service_name')
+    database_service_name = env.str('db_service_name')
 
     avaiable_types = ['sqlite', 'mysql', 'postgres']
 
