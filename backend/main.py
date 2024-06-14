@@ -15,6 +15,8 @@ from routers import *
 
 from loguru import logger
 
+from envparse import env
+
 
 LOG_OUT_FILE = 'logs/backend.log'
 logger.add(LOG_OUT_FILE, rotation='10 MB', compression='zip', level='DEBUG')
@@ -22,7 +24,7 @@ logger.add(LOG_OUT_FILE, rotation='10 MB', compression='zip', level='DEBUG')
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    redis_connection = redis.from_url("redis://redis", encoding="utf-8", decode_responses=True)
+    redis_connection = redis.from_url(f"redis://{env.str('redis_url')}", encoding="utf-8", decode_responses=True)
     await FastAPILimiter.init(redis_connection)
 
     logger.info('[⭐] Starting app...')
