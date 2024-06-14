@@ -47,6 +47,7 @@ class DataBase:
     password = env.str('db_password')
     database = env.str('db_database')
     database_service = env.str('db_service')
+    database_service_name = env.str('database_service_name')
 
     avaiable_types = ['sqlite', 'mysql', 'postgres']
 
@@ -61,8 +62,8 @@ class DataBase:
     else:
         if database_service == 'local':
             connection_string = f'{type}://{user}:{password}@{host}:{port}/{database}'
-        elif database == 'container':
-            connection_string = f'{type}://{user}:{password}@{database_service}/{database}'
+        elif database_service == 'container':
+            connection_string = f'{type}://{user}:{password}@{database_service_name}/{database}'
         else:
             raise ValueError('.env: database_service must be "local" or "container"')
 
