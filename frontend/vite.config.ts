@@ -15,6 +15,9 @@ export default defineConfig(({ mode }) => {
         usePolling: true,
       },
     },
+    preview: {
+      port: parseInt(env.VITE_PORT),
+    },
     resolve: {
       alias: {
         "@": path.resolve(__dirname, './src'),
