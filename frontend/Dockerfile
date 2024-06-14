@@ -8,4 +8,4 @@ COPY /frontend/ ./
 RUN npm install -g npm@latest && \
     npm i
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "preview"]
