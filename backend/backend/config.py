@@ -63,7 +63,7 @@ class DataBase:
         if database_service == 'local':
             connection_string = f'{type}://{user}:{password}@{host}:{port}/{database}'
         elif database_service == 'container':
-            connection_string = f'{type}://{user}:{password}@{database_service_name}/{database}'
+            connection_string = f'{type}://{user}:{password}@{database_service_name}:{port}/{database}'
         else:
             raise ValueError('.env: database_service must be "local" or "container"')
 
