@@ -43,7 +43,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: dLxzopda4a79!
-      MYSQL_DATABASE: my_site 
+      MYSQL_DATABASE: my_site
     ports:
       - "3307:3306"
 
@@ -57,7 +57,7 @@ services:
       context: .
       dockerfile: ./backend/Dockerfile
     ports:
-      - "8001:8000"
+      - "8888:8000"
 
 networks:
   traefik_network:

@@ -5,8 +5,9 @@ WORKDIR /app
 COPY /frontend/package*.json ./
 COPY /frontend/ ./
 
-RUN npm install -g npm@latest && npm i
-RUN npm run build
+RUN npm install -g npm@latest && \
+    npm i && \
+    npm run build
 
 FROM nginx:stable-alpine
 

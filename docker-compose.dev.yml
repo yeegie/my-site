@@ -17,4 +17,4 @@ services:
       context: .
       dockerfile: ./backend/Dockerfile.dev
     ports:
-      - "8001:8001"
+      - "8888:8000"
