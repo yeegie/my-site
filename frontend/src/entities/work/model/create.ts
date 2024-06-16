@@ -10,6 +10,7 @@ interface IField {
   name: string;
   type: "string" | "number" | "boolean" | "object" | "bigtext";
   optional: boolean;
+  default: string | boolean | number
 }
 
 interface IWorkCreate {
@@ -18,9 +19,9 @@ interface IWorkCreate {
 
 export const WorkCreateDto: IWorkCreate = {
   fields: [
-    { name: "title", type: "string", optional: false },
-    { name: "description_short", type: "bigtext", optional: true },
-    { name: "description_full", type: "bigtext", optional: true },
-    { name: "is_active", type: "boolean", optional: true },
+    { name: "title", type: "string", optional: false, default: "Title" },
+    { name: "description_short", type: "bigtext", optional: true, default: "Short description" },
+    { name: "description_full", type: "bigtext", optional: true, default: "Full description" },
+    { name: "is_active", type: "boolean", optional: true, default: false },
   ],
 };
