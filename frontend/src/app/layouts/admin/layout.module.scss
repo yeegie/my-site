@@ -1,7 +1,5 @@
 .main-layout {
-    display: flex;
-
-    .main-content {
-        height: 100vh;
-    }
+    display: grid;
+    grid-template-columns: auto 1fr;
+    height: 100vh;
 }

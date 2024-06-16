@@ -27,12 +27,6 @@ html {
     -ms-user-select: none;
 }
 
-.main-layout {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    height: 100vh;
-}
-
 a {
     outline: none;
     -webkit-tap-highlight-color: transparent;
