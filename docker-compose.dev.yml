@@ -18,3 +18,21 @@ services:
       dockerfile: ./backend/Dockerfile.dev
     ports:
       - "8888:8000"
+
+  # Needs for FastAPI Limiter
+  redis:
+    container_name: redis
+    image: redis:latest
+    restart: always
+    ports:
+      - "6380:6379"
+
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dLxzopda4a79!
+      MYSQL_DATABASE: my_site 
+    ports:
+      - "3307:3306"
