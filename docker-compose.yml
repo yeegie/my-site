@@ -9,8 +9,8 @@ services:
       dockerfile: ./frontend/Dockerfile
     ports:
       - "3000:3000"
-    # networks:
-      # - traefik_network
+    networks:
+      - traefik_network
     depends_on:  # Turn it on if you have to
       - nginx
       # - api
@@ -85,6 +85,8 @@ services:
       dockerfile: ./backend/Dockerfile
     ports:
       - "8888:8000"
+    networks:
+      - traefik_network
 
 networks:
   traefik_network:
