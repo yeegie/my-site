@@ -1,5 +1,5 @@
 export interface ButtonProps {
-    type?: 'submit'
+    type?: 'submit' | 'reset' | 'button'
     text?: string
     href?: string
     disabled?: boolean
