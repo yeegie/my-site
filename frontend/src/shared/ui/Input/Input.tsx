@@ -15,27 +15,31 @@ export const Input: React.FC<InputProps> = ({
   onChange,
   required,
   className,
+  default_value,
 }) => {
-  const [inputData, setinputData] = useState<string>("");
+  const [inputData, setinputData] = useState<string>(default_value ?? "");
   const [visible, setVisible] = useState<boolean>(
     type === "password" ? false : true
   );
   const toggleVisibility = () => setVisible(!visible);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setinputData(e.target.value);
-    console.log(inputData);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setinputData(event.target.value);
+    if (onChange) {
+      onChange(event);
+    }
   };
 
   return (
     <div className={clsx(styles.input, className)}>
       <input
         type={visible ? "text" : "password"}
+        value={inputData}
         placeholder={placeholder}
         name={name}
         minLength={minLength}
         maxLength={maxLength}
-        onChange={onChange ?? handleChange}
+        onChange={(event) => handleChange(event)}
         {...(required ? { required } : {})}
       />
       {type === "password" ? (
