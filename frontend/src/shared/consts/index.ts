@@ -7,3 +7,4 @@ export {
 } from "./breakpoints";
 export { WIDGETS } from "./widgets";
 export { SIDEBAR_CATEGORIES } from "./sidebar";
+export { fieldType } from './fieldTypes';

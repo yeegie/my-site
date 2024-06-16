@@ -2,9 +2,10 @@ import React, { FormEvent, useState, ChangeEvent } from "react";
 import styles from "./formCreate.module.scss";
 import { FormCreateProps } from "./formCreate.props";
 import { Button } from "@shared/ui/Button";
-import { Input } from "@shared/ui/Input";
-import { Checkbox } from "@shared/ui/Checkbox";
-import { TextArea } from "@shared/ui/TextArea";
+// import { Input } from "@shared/ui/Input";
+// import { Checkbox } from "@shared/ui/Checkbox";
+// import { TextArea } from "@shared/ui/TextArea";
+import { fieldType } from "@shared/consts";
 
 type bodyType = {
   [key: string]: string | number | boolean
@@ -23,14 +24,6 @@ export const FormCreate: React.FC<FormCreateProps> = ({ createDto }) => {
       [key]: value,
     }))
     console.info(body)
-  }
-
-  const fieldType = {
-    "string": <Input />,
-    "number": <Input />,
-    "boolean": <Checkbox />,
-    "object": <TextArea />,
-    "bigtext": <TextArea />,
   }
 
   const fields = createDto.fields.map((field) => (
