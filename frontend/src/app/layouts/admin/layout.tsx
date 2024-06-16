@@ -14,7 +14,7 @@ export const Layout = () => {
       <SkeletonTheme baseColor="#ebebeb" highlightColor="#f5f5f5">
         <main className={styles["main-layout"]}>
           <Sidebar categories={SIDEBAR_CATEGORIES} />
-          <div>
+          <div className={styles['main-content']}>
             <TopPanel />
             <Outlet />
           </div>
